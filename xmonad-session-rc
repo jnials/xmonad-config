@@ -3,7 +3,6 @@
 # Author: Vic Fryzel
 # https://github.com/vicfryzel/xmonad-config
 
-
 # Configure PATH so that we can access our scripts below
 PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
 
@@ -20,20 +19,30 @@ xcompmgr -n &
 feh --bg-fill ~/.wallpaper.jpg &
 
 # Start the system tray
-stalonetray -c ~/.xmonad/stalonetrayrc-single &
+trayer --edge top --align right --SetDockType true \
+ --SetPartialStrut true --width 276 --widthtype pixel --height 23 \
+ --transparent true --tint 0x000000 --monitor 1 &
+#stalonetray -c ~/.xmonad/stalonetrayrc-dual &
 
 # Start two terminals
-gnome-terminal &
-gnome-terminal &
+konsole &
 
+# start nm-applet
+nm-applet &
 # Start a browser
-google-chrome &
+chromium-browser &
 
 # Start screensaver
 killall gnome-screensaver &
 xscreensaver -no-splash &
 
+# Start Franz for communication
+franz &
+
+# start a clipping manager
+qlipper &
+
 # Start sound server
 pulseaudio --start --log-target=syslog &
 
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad
+exec xmonad

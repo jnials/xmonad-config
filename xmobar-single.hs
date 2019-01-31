@@ -11,7 +11,7 @@ Config {
     -- Position xmobar along the top, with a stalonetray in the top right.
     -- Add right padding to xmobar to ensure stalonetray and xmobar don't
     -- overlap. stalonetrayrc-single is configured for 12 icons, each 23px
-    -- wide. 
+    -- wide.
     -- right_padding = num_icons * icon_size
     -- right_padding = 12 * 23 = 276
     -- Example: position = TopP 0 276
@@ -24,7 +24,7 @@ Config {
     allDesktops = True,
     persistent = True,
     commands = [
-        Run Weather "KBMQ" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
+        Run Weather "KBMQ" ["-t","<tempF>F <skyCondition>","-L","60","-H","85","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 3600,
         Run MultiCpu ["-t","Cpu: <total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 10,
         Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
@@ -35,5 +35,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %weather% %multicpu%   %memory%   %swap%  %eth0%   Vol: <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
+    template = "%StdinReader% }{ %KBMQ% %multicpu%   %memory%   %swap%  %eth0%   Vol: <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
 }

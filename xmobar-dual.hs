@@ -19,8 +19,8 @@ Config {
     -- width = display_width - (num_icons * icon_width)
     -- width = 2560 - (12 * 19) = 2332
     -- height = 19
-    position = Static { xpos = 2560, ypos = 0, width = 2332, height = 19 },
-    font = "xft:monospace-8",
+    position = Static { xpos = 3840, ypos = 0, width = 3564, height = 23 },
+    font = "xft:PragmataPro Mono:pixelsize=20",
     bgColor = "#000000",
     fgColor = "#ffffff",
     lowerOnStart = False,
@@ -29,7 +29,7 @@ Config {
     allDesktops = False,
     persistent = True,
     commands = [
-        Run Weather "KPAO" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
+        Run Weather "KBMQ" ["-t","<tempF>°F <skyCondition>","-L","60","-H","85","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
         Run MultiCpu ["-t","Cpu: <total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 10,
         Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
         Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 10,
@@ -40,5 +40,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %multicpu%   %memory%   %swap%  %eth0%   Vol: <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
+    template = "%StdinReader% }{ %KBMQ% | %multicpu%   %memory%   %swap%  %eth0%   Vol: <fc=#b2b2ff>%volumelevel%</fc>   <fc=#FFFFCC>%date%</fc>"
 }
