@@ -13,7 +13,9 @@ import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
+import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Reflect
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
@@ -43,7 +45,7 @@ myScreenshot = "screenshot"
 myLauncher = "$(yeganesh -x -- -fn 'xft:PragmataPro Mono:pixelsize=20' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
 
 -- Location of your xmobar.hs / xmobarrc
-myXmobarrc = "~/.xmonad/xmobar-dual.hs"
+myXmobarrc = "~/.xmonad/xmobar-single.hs"
 
 
 ------------------------------------------------------------------------
@@ -68,14 +70,16 @@ myWorkspaces = ["❶:term","❷:web","❸:code","❹:vm","❺:media"] ++ map sho
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Chromium"       --> doShift "2:web"
+    [ className =? "Chromium-browser"       --> doShift "2:web"
     , className =? "Google-chrome"  --> doShift "2:web"
+    , className =? "konsole"        --> doShift "1:term"
     , resource  =? "desktop_window" --> doIgnore
     , className =? "Galculator"     --> doFloat
     , className =? "Steam"          --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "gpicview"       --> doFloat
     , className =? "MPlayer"        --> doFloat
+    , className =? "Franz"          --> doShift "2:web"
     , className =? "VirtualBox"     --> doShift "4:vm"
     , className =? "Xchat"          --> doShift "5:media"
     , className =? "stalonetray"    --> doIgnore
@@ -94,7 +98,7 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 myLayout = avoidStruts (
-    ThreeColMid 1 (3/100) (1/2) |||
+    spacing 5 $ ThreeColMid 1 (3/100) (1/2) |||
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
     spiral (6/7))
