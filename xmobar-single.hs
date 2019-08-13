@@ -16,7 +16,7 @@ Config {
     -- right_padding = 12 * 23 = 276
     -- Example: position = TopP 0 276
     position = TopP 0 276,
-    font = "xft:monospace-8",
+    font = "xft:PragmataPro Mono:pixelsize=20",
     bgColor = "#000000",
     fgColor = "#ffffff",
     lowerOnStart = False,

@@ -26,6 +26,7 @@ trayer --edge top --align right --SetDockType true \
 
 # Start two terminals
 konsole &
+konsole &
 
 # start nm-applet
 nm-applet &
@@ -44,5 +45,9 @@ qlipper &
 
 # Start sound server
 pulseaudio --start --log-target=syslog &
+
+# Start Spotify
+spotify &
+
 
 exec xmonad
