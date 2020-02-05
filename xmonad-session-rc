@@ -30,6 +30,10 @@ konsole &
 
 # start nm-applet
 nm-applet &
+
+# start bluetooth applet.
+blueman-applet &
+
 # Start a browser
 chromium-browser &
 

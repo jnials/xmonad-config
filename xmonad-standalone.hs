@@ -16,6 +16,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Reflect
+import XMonad.Layout.TwoPane
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
@@ -42,7 +43,7 @@ myScreenshot = "screenshot"
 
 -- The command to use as a launcher, to launch commands that don't have
 -- preset keybindings.
-myLauncher = "$(yeganesh -x -- -fn 'xft:PragmataPro Mono:pixelsize=20' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
+myLauncher = "$(yeganesh -x -- -fn 'xft:PragmataPro Mono:pixelsize=23' -nb '#000000' -nf '#FFFFFF' -sb '#7C7C7C' -sf '#CEFFAC')"
 
 -- Location of your xmobar.hs / xmobarrc
 myXmobarrc = "~/.xmonad/xmobar-single.hs"
@@ -52,8 +53,8 @@ myXmobarrc = "~/.xmonad/xmobar-single.hs"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
--- Remaining Font chars ❼ ❽ ❾ ❿
-myWorkspaces = ["❶:term","❷:web","❸:code","❹:tasks","❺:media", "❻:vm"] ++ map show [7..9]
+-- Remaining Font chars  ❽ ❾ ❿
+myWorkspaces = ["❶:term","❷:web","❸:code","❹:tasks","❺:media", "❻:vm", "❼:video"] ++ map show [8 ..9]
 
 
 ------------------------------------------------------------------------
@@ -89,7 +90,6 @@ myManageHook = composeAll
     , className =? "trayer"               --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
-
 ------------------------------------------------------------------------
 -- Layouts
 -- You can specify and transform your layouts by modifying these values.
@@ -101,9 +101,11 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 myLayout = avoidStruts (
-    spacing 5 $ ThreeColMid 1 (3/100) (1/2) |||
-    Tall 1 (3/100) (1/2) |||
-    Mirror (Tall 1 (3/100) (1/2)) |||
+    spacing 5 $
+    ThreeColMid 1 (5/100) (60/100) |||
+    Full |||
+    Tall 1 (5/100) (60/100) |||
+    Mirror (Tall 1 (5/100) (60/100)) |||
     spiral (6/7))
 
 
